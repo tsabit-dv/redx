@@ -1,13 +1,14 @@
 import phonenumbers
 from phonenumbers import geocoder, carrier, phonenumberutil, timezone
 
-title = """
+title = r"""
   ____  _____ ____      __  __  ___ _   _ _____ ___  
  |  _ \| ____|  _ \     \ \/ / |_ _| \ | |  ___/ _ \ 
  | |_) |  _| | | | |_____\  /   | ||  \| | |_ | | | |
  |  _ <| |___| |_| |_____/  \   | || |\  |  _|| |_| |
  |_| \_\_____|____/     /_/\_\ |___|_| \_|_|   \___/ 
 """
+
 
 print("\033[1;32;40m" + title + "\033[m")  
 print("📞 Welcome to the Phone Number Details Extractor by Redx! 📞")
