@@ -2,8 +2,51 @@ import phonenumbers
 from phonenumbers import geocoder, carrier, phonenumberutil, timezone
 import requests
 
-# Judul ASCII dengan warna biru
-title = r"""
+title = r"""                                                                                      
+                                                                                                            
+                                                  .                                                         
+                                                   *.  =                                                    
+                                                    +%  @=                                                  
+                                           %*   %:   +@- #@                                                 
+                                      *@@@@@@@@@@@@@+ *@@:*@*                                               
+                                    =*%@@@@@@@@@@@@@@@@@@@@@@@+                                             
+                                   %@@@@@@@@@@@@@@@@@@@@@@@@@@@@=                                           
+                                 +@@@@@@@+           %@@@@@@@@@@@@+                                         
+                                +@@@@@@.                #@@@@@@@@@@@                                        
+                                .@@@@@                    #@@@@@@=-@@                                       
+                               =@@@@@*                      @@@@@@@=@@:                                     
+                                :@@@@+                       #@@@@@@@@@#                                    
+                                :@@@@@                         +@@@@@@@                                     
+                                #@@@@@@                           %@@@@@+                                   
+                                  .@@@@@-                           +@@@@@=                                 
+                                   %@@@@@@                            @@@@@@                                
+                                      :@@@@@+                          %@@@+                                
+                                         *@@@@@=                       %@*                                  
+                                            :@@@@@%-                                                        
+                                                -%@@@@#                                                     
+                                                    -@@@@#                                                  
+                                                        #@@#                                                
+                                                          .@@*                                              
+                                                             @*                                             
+                                                              #=                                            
+                                                               %                                            
+                                                               .                                            
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                            %@@@%*    %@@@#     -@@@@@#     .%@@@%:      =%%%%%                             
+                             @@@@@  *@@@@#       @@@@@@%      @@@@+       %@@@@                             
+                             @@@@@ %@@@@        =@@@@@@@#     @@@@*       #@@@@                             
+                             @@@@@@@@@@         @@@@@@@@@-    @@@@*       #@@@@                             
+                             @@@@@@@@@@        @@@@% =@@@@    @@@@*       *@@@@                             
+                             @@@@@@@@@@@:     @@@@@@@@@@@@@   @@@@#       *@@@@                             
+                             @@@@@  @@@@@+   =@@@@@@@@@@@@@#  @@@@@@@@@@@.*@@@@                             
+                             @@@@@   %@@@@*  @@@@#     +@@@@- @@@@@@@@@@@:+@@@@                             
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                                                                                                            
+                                                                              
   _  __             ______  _    _             _______      __
  | |/ /     /\     |___  / | |  | |           |  __ \ \    / /
  | ' /     /  \       / /  | |  | |           | |  | \ \  / / 
@@ -18,14 +61,11 @@ print("\033[1;34;40m" + title + "\033[m")
 print("📞 Welcome to the Phone Number & Location Tracker!")
 print("Please enter the phone number below:")
 
-# Input nomor telepon
 phone_number = input("Enter the phone number (with country code, e.g., +628123456789): ")
 
 try:
-    # Parsing nomor telepon
     number = phonenumbers.parse(phone_number, None)
     
-    # Informasi nomor telepon
     country_code = phonenumbers.region_code_for_number(number)
     country_name = geocoder.country_name_for_number(number, "en")
     location = geocoder.description_for_number(number, "en")
@@ -34,11 +74,9 @@ try:
     validity = "Valid" if phonenumbers.is_valid_number(number) else "Invalid"
     formatted_number = phonenumbers.format_number(number, phonenumbers.PhoneNumberFormat.INTERNATIONAL)
 
-    # Zona waktu
     time_zones = timezone.time_zones_for_number(number)
     time_zones_description = f"Time Zones: {', '.join(time_zones)}" if time_zones else "Time zone info not available"
     
-    # Informasi jenis nomor
     number_type_description = {
         phonenumberutil.PhoneNumberType.MOBILE: "Mobile",
         phonenumberutil.PhoneNumberType.FIXED_LINE: "Fixed-line",
@@ -48,7 +86,6 @@ try:
         phonenumberutil.PhoneNumberType.VOIP: "VOIP",
     }.get(number_type, "Other")
 
-    # Mencetak detail nomor
     print("\n🌐 Phone Number Details 🌐:")
     print(f"📍 Country: {country_name} ({country_code})")
     print(f"📌 Location: {location}")
@@ -62,7 +99,6 @@ except phonenumbers.phonenumberutil.NumberParseException as e:
     print("❌ Number could not be parsed:", e)
     exit()
 
-# ======================== 🔍 GEOLOCATION (IP-BASED) 🔍 ========================
 
 def get_ip_location():
     """Mengambil lokasi berdasarkan alamat IP"""
@@ -82,5 +118,4 @@ def get_ip_location():
     print(f"🕵️ ISP: {data['isp']}")
     print(f"📡 IP Address: {data['query']}")
 
-# Jalankan fungsi pelacakan lokasi berdasarkan IP
 get_ip_location()
