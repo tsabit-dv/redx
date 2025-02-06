@@ -2,8 +2,7 @@ import phonenumbers
 from phonenumbers import geocoder, carrier, phonenumberutil, timezone
 import requests
 
-title = r""" 
-                                                           
+title = r"""                                                           
                                                            
                                ++                          
                        +     +-                            
